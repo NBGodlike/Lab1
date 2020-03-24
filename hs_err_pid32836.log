@@ -1,0 +1,187 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 35952 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:389), pid=32836, tid=0x00000000000035bc
+#
+# JRE version:  (8.0_241-b07) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.241-b07 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000195d800):  JavaThread "main" [_thread_in_native, id=13756, stack(0x00000000031d0000,0x00000000032d0000)]
+
+Stack: [0x00000000031d0000,0x00000000032d0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.String.<init>([C)V+8
+j  sun.nio.cs.FastCharsetProvider.toLower(Ljava/lang/String;)Ljava/lang/String;+118
+j  sun.nio.cs.FastCharsetProvider.lookup(Ljava/lang/String;)Ljava/nio/charset/Charset;+2
+j  sun.nio.cs.FastCharsetProvider.charsetForName(Ljava/lang/String;)Ljava/nio/charset/Charset;+10
+j  java.nio.charset.Charset.lookup2(Ljava/lang/String;)Ljava/nio/charset/Charset;+39
+j  java.nio.charset.Charset.lookup(Ljava/lang/String;)Ljava/nio/charset/Charset;+40
+j  java.nio.charset.Charset.isSupported(Ljava/lang/String;)Z+1
+v  ~StubRoutines::call_stub
+j  java.lang.System.initProperties(Ljava/util/Properties;)Ljava/util/Properties;+0
+j  java.lang.System.initializeSystemClass()V+13
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000001e643800 JavaThread "Finalizer" daemon [_thread_blocked, id=15500, stack(0x000000001f8b0000,0x000000001f9b0000)]
+  0x00000000033c9000 JavaThread "Reference Handler" daemon [_thread_blocked, id=1696, stack(0x000000001f7b0000,0x000000001f8b0000)]
+=>0x000000000195d800 JavaThread "main" [_thread_in_native, id=13756, stack(0x00000000031d0000,0x00000000032d0000)]
+
+Other Threads:
+  0x000000001e622800 VMThread [stack: 0x000000001f6b0000,0x000000001f7b0000] [id=31540]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000006c2600000, size: 4058 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 75776K, used 1300K [0x000000076b780000, 0x0000000770c00000, 0x00000007c0000000)
+  eden space 65024K, 2% used [0x000000076b780000,0x000000076b8c51f8,0x000000076f700000)
+  from space 10752K, 0% used [0x0000000770180000,0x0000000770180000,0x0000000770c00000)
+  to   space 10752K, 0% used [0x000000076f700000,0x000000076f700000,0x0000000770180000)
+ ParOldGen       total 173568K, used 0K [0x00000006c2600000, 0x00000006ccf80000, 0x000000076b780000)
+  object space 173568K, 0% used [0x00000006c2600000,0x00000006c2600000,0x00000006ccf80000)
+ Metaspace       used 1230K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 133K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000012790000,0x0000000012f80000] byte_map_base: 0x000000000f17d000
+
+Marking Bits: (ParMarkBitMap*) 0x000000007392be30
+ Begin Bits: [0x0000000013ed0000, 0x0000000017e38000)
+ End Bits:   [0x0000000017e38000, 0x000000001bda0000)
+
+Polling page: 0x0000000000fd0000
+
+CodeCache: size=245760Kb used=411Kb max_used=411Kb free=245348Kb
+ bounds [0x00000000033d0000, 0x0000000003640000, 0x00000000123d0000]
+ total_blobs=106 nmethods=0 adapters=80
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (2 events):
+Event: 0.066 Thread 0x000000000195d800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x000000076b787cc0) thrown at [C:\ade\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u241\331\
+Event: 0.066 Thread 0x000000000195d800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x000000076b787fa8) thrown at [C:\ade\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u241\331\hotspot\src\share\
+
+Events (10 events):
+Event: 0.085 loading class java/util/WeakHashMap
+Event: 0.086 loading class java/util/WeakHashMap done
+Event: 0.086 loading class java/lang/ClassValue$ClassValueMap done
+Event: 0.086 loading class java/lang/reflect/Modifier
+Event: 0.086 loading class java/lang/reflect/Modifier done
+Event: 0.086 loading class java/lang/reflect/ReflectAccess
+Event: 0.086 loading class sun/reflect/LangReflectAccess
+Event: 0.086 loading class sun/reflect/LangReflectAccess done
+Event: 0.086 loading class java/lang/reflect/ReflectAccess done
+Event: 0.087 loading class java/util/Arrays
+
+
+Dynamic libraries:
+0x00007ff602b90000 - 0x00007ff602bc7000 	C:\Program Files\Java\jdk1.8.0_241\bin\java.exe
+0x00007ffd64ba0000 - 0x00007ffd64d8d000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffd63f20000 - 0x00007ffd63fd3000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffd60ee0000 - 0x00007ffd61173000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffd63e70000 - 0x00007ffd63f13000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffd63fe0000 - 0x00007ffd6407e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffd63d60000 - 0x00007ffd63dfe000 	C:\Windows\System32\sechost.dll
+0x00007ffd63600000 - 0x00007ffd63722000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffd64440000 - 0x00007ffd645d7000 	C:\Windows\System32\USER32.dll
+0x00007ffd61a70000 - 0x00007ffd61a90000 	C:\Windows\System32\win32u.dll
+0x00007ffd64ac0000 - 0x00007ffd64ae9000 	C:\Windows\System32\GDI32.dll
+0x00007ffd61a90000 - 0x00007ffd61c29000 	C:\Windows\System32\gdi32full.dll
+0x00007ffd60e40000 - 0x00007ffd60ee0000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffd61950000 - 0x00007ffd61a4a000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffd4e7a0000 - 0x00007ffd4ea19000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17763.1098_none_de762ed45346ee8a\COMCTL32.dll
+0x00007ffd63730000 - 0x00007ffd63a5c000 	C:\Windows\System32\combase.dll
+0x00007ffd618d0000 - 0x00007ffd6194e000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffd63a60000 - 0x00007ffd63a8e000 	C:\Windows\System32\IMM32.DLL
+0x0000000073e90000 - 0x0000000073f62000 	C:\Program Files\Java\jdk1.8.0_241\jre\bin\msvcr100.dll
+0x0000000073100000 - 0x00000000739ac000 	C:\Program Files\Java\jdk1.8.0_241\jre\bin\server\jvm.dll
+0x00007ffd64430000 - 0x00007ffd64438000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffd41e30000 - 0x00007ffd41e39000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffd5c1c0000 - 0x00007ffd5c1ca000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffd5ebe0000 - 0x00007ffd5ec04000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffd63e00000 - 0x00007ffd63e6d000 	C:\Windows\System32\WS2_32.dll
+0x00007ffd5ebb0000 - 0x00007ffd5ebdd000 	C:\Windows\SYSTEM32\WINMMBASE.dll
+0x00007ffd61d70000 - 0x00007ffd61dba000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ffd5ed50000 - 0x00007ffd5ed5f000 	C:\Program Files\Java\jdk1.8.0_241\jre\bin\verify.dll
+0x00007ffd52b80000 - 0x00007ffd52ba9000 	C:\Program Files\Java\jdk1.8.0_241\jre\bin\java.dll
+0x00007ffd5e670000 - 0x00007ffd5e686000 	C:\Program Files\Java\jdk1.8.0_241\jre\bin\zip.dll
+0x00007ffd61dc0000 - 0x00007ffd632b4000 	C:\Windows\System32\SHELL32.dll
+0x00007ffd63cb0000 - 0x00007ffd63d58000 	C:\Windows\System32\shcore.dll
+0x00007ffd61180000 - 0x00007ffd618cd000 	C:\Windows\System32\windows.storage.dll
+0x00007ffd60c10000 - 0x00007ffd60c34000 	C:\Windows\System32\profapi.dll
+0x00007ffd60bb0000 - 0x00007ffd60c0d000 	C:\Windows\System32\powrprof.dll
+0x00007ffd63a90000 - 0x00007ffd63ae2000 	C:\Windows\System32\shlwapi.dll
+0x00007ffd60b90000 - 0x00007ffd60ba1000 	C:\Windows\System32\kernel.appcore.dll
+0x00007ffd61a50000 - 0x00007ffd61a67000 	C:\Windows\System32\cryptsp.dll
+
+VM Arguments:
+java_command: LabWorkOne.Mapper 3
+java_class_path (initial): src
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_241\bin
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NGX;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Java\jdk1.8.0_241\bin;C:\Users\uomad\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_241\bin;
+USERNAME=uomad
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 17763 (10.0.17763.475)
+
+CPU:total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 158 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16617976k(3786744k free), swap 66949624k(5680k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.241-b07) for windows-amd64 JRE (1.8.0_241-b07), built on Dec 11 2019 10:21:40 by "rejava" with MS VC++ 10.0 (VS2010)
+
+time: Tue Mar 24 21:26:34 2020
+timezone: RTZ 2 (зима)
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
