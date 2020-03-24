@@ -23,8 +23,8 @@ public class LabOne {
 
         ChronicleMap<String, Integer> Words = ChronicleMap
                 .of(String.class, Integer.class)
-                .name("city-postal-codes-map")
-                .averageKey("Amsterdam")
+                .name("codes-map")
+                .averageKey("Aaaaaaaaa")
                 .entries(320000000)
                 .create();
 
@@ -51,7 +51,7 @@ public class LabOne {
         MysqlConnect mysqlConnect = new MysqlConnect();
 
         //Generator
-        /*try(FileWriter writer = new FileWriter("C://File//200.txt",false))
+        try(FileWriter writer = new FileWriter("C://File//200.txt",false))
         {
             while (FileSize < 100L * 1024  * 1024) {
                 while (Size < MaxSize) {
@@ -84,7 +84,7 @@ public class LabOne {
             System.out.println(ex.getMessage());
         }
         System.out.println("The file has been written");
-*/
+
         ExecutorService threadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() - 3);
 
         try(FileReader reader = new FileReader("C://File//8000.txt"))
