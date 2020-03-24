@@ -51,7 +51,7 @@ public class LabOne {
         MysqlConnect mysqlConnect = new MysqlConnect();
 
         //Generator
-        try(FileWriter writer = new FileWriter("C://File//200.txt",false))
+        try(FileWriter writer = new FileWriter("C://File//8000.txt",false))
         {
             while (FileSize < 100L * 1024  * 1024) {
                 while (Size < MaxSize) {
