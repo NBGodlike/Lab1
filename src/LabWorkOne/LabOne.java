@@ -30,7 +30,6 @@ public class LabOne {
 
 
         AtomicReference<String> Dict = new AtomicReference<>("");
-
         //TreeMap <String, Integer> Words = new TreeMap<>();
 
         int ChunkSize = 1024 * 1024;
